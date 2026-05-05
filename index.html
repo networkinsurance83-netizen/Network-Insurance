@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Network Insurance | Health Coverage Review</title>
+  <meta name="description" content="Request a health coverage review with Network Insurance. Learn about deductibles, out-of-pocket maximums, HMO, PPO, EPO, preventive care, and coverage options.">
+  <link rel="preconnect" href="https://images.unsplash.com">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#top" aria-label="Network Insurance home">
+      <img class="brand-logo" src="assets/network-insurance-logo-cropped.png" alt="Network Insurance logo">
+      <span>
+        <strong>Network Insurance</strong>
+        <small>Health Coverage Reviews</small>
+      </span>
+    </a>
+    <nav aria-label="Primary navigation">
+      <a href="#learn">Learn</a>
+      <a href="#videos">Videos</a>
+      <a href="#lead-form">Get Help</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <img class="hero-image" src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=1800&q=80" alt="A healthcare professional reviewing information with a patient">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <img class="hero-logo" src="assets/network-insurance-logo-cropped.png" alt="Network Insurance">
+        <p class="eyebrow">Free coverage review</p>
+        <h1>Understand your health coverage options before medical bills surprise you.</h1>
+        <p class="hero-copy">Review costs, doctor networks, deductibles, prescriptions, and plan types with Brad. Options, eligibility, and coverage vary by plan and location.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#lead-form">Request a Review</a>
+          <a class="button secondary" href="https://calendar.app.google/1ixxjwaF9GHC75rNA">Book an Appointment</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="trust-strip" aria-label="Coverage topics">
+      <span>Deductibles</span>
+      <span>Out-of-pocket maximums</span>
+      <span>HMO, PPO, EPO</span>
+      <span>Preventive care</span>
+      <span>Doctor networks</span>
+    </section>
+
+    <section class="section split" id="lead-form">
+      <div>
+        <p class="eyebrow">Lead form</p>
+        <h2>Request a health coverage review</h2>
+        <p>Send your information and Brad will follow up about available options. This form does not request passwords, Social Security numbers, or payment details.</p>
+        <ul class="check-list">
+          <li>Review plan types and common cost terms</li>
+          <li>Talk through doctor and prescription questions</li>
+          <li>Book a time on the Network Insurance calendar</li>
+        </ul>
+      </div>
+
+      <form class="lead-card" id="leadForm" action="#" method="post">
+        <label>
+          Full name
+          <input name="full_name" autocomplete="name" required>
+        </label>
+        <label>
+          Phone number
+          <input name="phone" type="tel" autocomplete="tel" required>
+        </label>
+        <label>
+          Email
+          <input name="email" type="email" autocomplete="email">
+        </label>
+        <div class="form-row">
+          <label>
+            State
+            <input name="state" maxlength="2" autocomplete="address-level1" required>
+          </label>
+          <label>
+            ZIP
+            <input name="zip" inputmode="numeric" autocomplete="postal-code">
+          </label>
+        </div>
+        <label>
+          What do you want help with?
+          <select name="need">
+            <option>Choosing a plan</option>
+            <option>Understanding costs</option>
+            <option>Doctor network questions</option>
+            <option>Current plan review</option>
+            <option>Family coverage</option>
+          </select>
+        </label>
+        <label class="consent">
+          <input name="consent" type="checkbox" required>
+          <span>I agree to be contacted by Network Insurance about health coverage options. Message and data rates may apply.</span>
+        </label>
+        <button class="button primary full" type="submit">Send My Request</button>
+        <p class="form-note" id="formStatus">Form endpoint pending. Use the appointment button until Google Form is connected.</p>
+      </form>
+    </section>
+
+    <section class="section" id="learn">
+      <div class="section-heading">
+        <p class="eyebrow">Quick education</p>
+        <h2>Coverage terms people ask about most</h2>
+      </div>
+      <div class="topic-grid">
+        <article>
+          <h3>Deductible</h3>
+          <p>The amount you usually pay before a plan starts sharing certain covered costs. Details vary by plan.</p>
+        </article>
+        <article>
+          <h3>Out-of-pocket maximum</h3>
+          <p>A yearly limit on certain covered costs. Premiums and non-covered services usually do not count.</p>
+        </article>
+        <article>
+          <h3>HMO</h3>
+          <p>A plan type that often uses a specific provider network and may require referrals for specialists.</p>
+        </article>
+        <article>
+          <h3>PPO</h3>
+          <p>A plan type that may offer more provider flexibility, often with different in-network and out-of-network costs.</p>
+        </article>
+        <article>
+          <h3>EPO</h3>
+          <p>A plan type that often focuses on in-network care, except emergencies. Network details matter.</p>
+        </article>
+        <article>
+          <h3>Preventive care</h3>
+          <p>Routine checkups and screenings may help identify health concerns earlier, depending on the service and plan.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section video-section" id="videos">
+      <div class="section-heading">
+        <p class="eyebrow">Video Q&A</p>
+        <h2>Short answers before you book</h2>
+      </div>
+      <div class="video-grid">
+        <article class="video-card">
+          <div class="video-thumb deductible"><span>▶</span></div>
+          <h3>What is a deductible?</h3>
+          <p>A simple breakdown of how deductibles can affect what you pay before certain benefits begin.</p>
+        </article>
+        <article class="video-card">
+          <div class="video-thumb maximum"><span>▶</span></div>
+          <h3>Out-of-pocket maximum</h3>
+          <p>Why this number matters when comparing plans and thinking about medical bill risk.</p>
+        </article>
+        <article class="video-card">
+          <div class="video-thumb network"><span>▶</span></div>
+          <h3>HMO vs PPO vs EPO</h3>
+          <p>How provider networks and flexibility may change your plan experience.</p>
+        </article>
+        <article class="video-card">
+          <div class="video-thumb doctor"><span>▶</span></div>
+          <h3>Primary doctor visits</h3>
+          <p>Why preventive care and regular checkups may be an important part of staying covered and informed.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section article-band">
+      <img src="https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&w=1400&q=80" alt="Medical office desk with health documents">
+      <div>
+        <p class="eyebrow">Source-based content</p>
+        <h2>Built to support Facebook posts and lead campaigns</h2>
+        <p>Sarah can use this page as the destination for Facebook posts about preventive care, diabetes awareness, deductibles, out-of-pocket maximums, and plan networks. Each post should cite a credible article and point people back here to request a review.</p>
+        <a class="button dark" href="#lead-form">Start With a Review</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div>
+      <strong>Network Insurance</strong>
+      <p>Health coverage education and review requests.</p>
+    </div>
+    <p class="fine-print">This website provides general educational information only. It does not provide medical advice and does not guarantee coverage, savings, eligibility, approval, provider access, or health outcomes. Options, eligibility, costs, provider networks, and coverage vary by plan and location.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
