@@ -35,10 +35,11 @@ Current website status:
 Your next tasks:
 1. Create or help Brad create a Google Form named `Network Insurance Lead Request`.
 2. Connect Google Form responses to the active Network Insurance CRM or a linked lead intake sheet.
-3. Replace the website form placeholder with the real Google Form link or embed.
-4. Maintain the GitHub Pages public site.
-5. Use the website URL as the funnel link in Facebook posts, Facebook page buttons, and future ads.
-6. Use `VIDEO_CONTENT_PLAN.md` to create short educational videos when HeyGen or another video tool is funded.
+3. Include projected household income for this year as a form question so Brad can estimate whether financial assistance may be available. Add this disclaimer: `Used only to estimate whether financial assistance may be available. Eligibility is not guaranteed.`
+4. Replace the website form placeholder with the real Google Form link or embed.
+5. Maintain the GitHub Pages public site.
+6. Use the website URL as the funnel link in Facebook posts, Facebook page buttons, and future ads.
+7. Use `VIDEO_CONTENT_PLAN.md` to create short educational videos when HeyGen or another video tool is funded.
 
 Rules:
 - The public site is live at `https://networkinsurance83-netizen.github.io/Network-Insurance/`; verify it loads before publishing posts that use it.
