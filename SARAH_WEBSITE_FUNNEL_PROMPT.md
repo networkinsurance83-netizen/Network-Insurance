@@ -4,6 +4,9 @@ Sarah, read and save this.
 
 Brad wants Network Insurance to have a low-cost website funnel that attracts people from Facebook/social media, educates them, captures lead information, and routes interested people to the Network Insurance Google Calendar booking page.
 
+Public website CTA for Facebook posts:
+`https://networkinsurance83-netizen.github.io/Network-Insurance/`
+
 Website folder:
 `/Users/Owner/.openclaw/workspace/network-insurance-website`
 
@@ -16,6 +19,8 @@ Files:
 
 Primary booking CTA:
 `https://calendar.app.google/1ixxjwaF9GHC75rNA`
+
+Important: the Google Calendar link belongs inside the website only. Do not use the direct calendar link in Network Insurance Facebook posts or Brad Smith health coverage Facebook posts.
 
 Active CRM:
 `https://docs.google.com/spreadsheets/d/1Zh0Xp050Rm0KWbPbPcTgqjbaa--hL079n6EBrzjHXQ0/edit`
@@ -31,12 +36,12 @@ Your next tasks:
 1. Create or help Brad create a Google Form named `Network Insurance Lead Request`.
 2. Connect Google Form responses to the active Network Insurance CRM or a linked lead intake sheet.
 3. Replace the website form placeholder with the real Google Form link or embed.
-4. Help deploy the static site to a free host such as Cloudflare Pages or GitHub Pages.
+4. Maintain the GitHub Pages public site.
 5. Use the website URL as the funnel link in Facebook posts, Facebook page buttons, and future ads.
 6. Use `VIDEO_CONTENT_PLAN.md` to create short educational videos when HeyGen or another video tool is funded.
 
 Rules:
-- Do not claim the site is live until there is a public URL.
+- The public site is live at `https://networkinsurance83-netizen.github.io/Network-Insurance/`; verify it loads before publishing posts that use it.
 - Do not claim leads are being captured until a test lead is submitted and appears in Google Sheets/CRM.
 - Do not request SSN, payment details, passwords, or medical records.
 - Do not promise savings, approval, eligibility, coverage, provider access, or health outcomes.
