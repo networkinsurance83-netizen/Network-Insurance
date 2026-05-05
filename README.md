@@ -69,9 +69,10 @@ Create a Google Form named `Network Insurance Lead Request` with these fields:
 4. State
 5. ZIP code
 6. What do you want help with?
-7. Preferred appointment time
-8. Consent checkbox: `I agree to be contacted by Network Insurance about health coverage options. Message and data rates may apply.`
-9. Source URL or source post, optional hidden/manual field if automation supports it.
+7. Projected household income for this year: `Used to estimate whether financial assistance may be available. Eligibility is not guaranteed.`
+8. Preferred appointment time
+9. Consent checkbox: `I agree to be contacted by Network Insurance about health coverage options. Message and data rates may apply.`
+10. Source URL or source post, optional hidden/manual field if automation supports it.
 
 Connect responses to the active `Network Insurance CRM` workbook:
 
@@ -84,6 +85,7 @@ Best low-cost route: Cloudflare Pages free plan or GitHub Pages. Cloudflare Page
 ## Compliance Notes
 
 - Do not promise savings, approval, eligibility, or specific coverage.
+- If asking for projected household income, state that it is used only to estimate possible financial assistance and does not guarantee eligibility or savings.
 - Do not ask for Social Security numbers, payment details, passwords, or medical records on the lead form.
 - Use `may`, `can help`, `options vary`, and `if eligible`.
 - Include the website disclaimer on every public page.
