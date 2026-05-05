@@ -33,13 +33,45 @@ Stop command:
 tmux kill-session -t network-insurance-site
 ```
 
-## Permanent Deployment Still Needed
+## Permanent Deployment
 
-Best next step for a permanent free URL:
+GitHub repository:
 
-- Cloudflare Pages free static hosting, or
-- GitHub Pages free static hosting.
+`https://github.com/networkinsurance83-netizen/Network-Insurance`
 
-Current permanent production URL:
+Files uploaded to GitHub:
 
-`PENDING_PERMANENT_DEPLOYMENT`
+- `index.html`
+- `styles.css`
+- `script.js`
+- `README.md`
+- `VIDEO_CONTENT_PLAN.md`
+- `SARAH_WEBSITE_FUNNEL_PROMPT.md`
+- `PUBLIC_WEBSITE_STATUS.md`
+- `assets/network-insurance-logo.png`
+- `assets/network-insurance-logo-cropped.png`
+
+GitHub branch created:
+
+`gh-pages`
+
+GitHub Pages URL:
+
+`https://networkinsurance83-netizen.github.io/Network-Insurance/`
+
+Current GitHub Pages status:
+
+`LIVE_VERIFIED`
+
+Verification:
+
+- `git ls-remote` confirms `main` and `gh-pages` branches exist.
+- `curl -I https://networkinsurance83-netizen.github.io/Network-Insurance/` returned `HTTP/2 200`.
+
+## Facebook CTA Rule
+
+Use this public website URL as the CTA link on Network Insurance Facebook posts and Brad Smith Facebook posts about health coverage:
+
+`https://networkinsurance83-netizen.github.io/Network-Insurance/`
+
+Do not use the direct Google Calendar booking link in Facebook post copy. The booking link remains inside the website.
