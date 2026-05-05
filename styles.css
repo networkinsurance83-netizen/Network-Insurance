@@ -296,6 +296,13 @@ select {
   font: inherit;
 }
 
+.field-help {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
 .form-row {
   display: grid;
   grid-template-columns: 1fr 1.4fr;
