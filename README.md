@@ -1,6 +1,6 @@
 # Network Insurance Website
 
-Network Insurance is an insurance education and organic lead-generation website for individuals and families. It helps visitors understand life insurance, health insurance, annuities, supplemental coverage, dental, vision, accident, critical illness, hospital indemnity, and disability income protection, then request a quote or coverage review with Brad Smith.
+Network Insurance is an insurance education and organic lead-generation website for individuals and families. It helps visitors understand life insurance, health insurance, annuities, supplemental coverage, dental, vision, accident, critical illness, hospital indemnity, and disability income protection, then request a quote or coverage review with an advisor.
 
 Live URL after GitHub Pages deployment:
 
@@ -22,7 +22,7 @@ Live URL after GitHub Pages deployment:
 - `life-insurance.html` - life insurance education and planning CTA page.
 - `annuities.html` - annuity education and retirement income review CTA page.
 - `supplemental-insurance.html` - supplemental coverage education and review CTA page.
-- `about.html` - Brad Smith introduction and trust positioning.
+- `about.html` - Advisor introduction and trust positioning.
 - `learn.html` - insurance education page.
 - `videos.html` - video placeholder library with transcript space.
 - `contact.html` - launch-ready quote and coverage review request form.
@@ -56,8 +56,8 @@ Edit the relevant `.html` file directly. Keep public pages customer-focused. Int
 
 ## Replacing Images
 
-- Current logo: `assets/network-insurance-logo-cropped.png`
-- Add Brad's approved headshot to `assets/` and replace the `headshot-placeholder` section in `about.html` and `index.html`.
+- Current logo: `assets/network-insurance-logo-web.png`
+- Add the advisor's approved headshot to `assets/` and replace the `headshot-placeholder` section in `about.html` and `index.html`.
 - Add image `width` and `height` attributes.
 - Use compressed images and avoid Base64-embedded images.
 
@@ -68,7 +68,7 @@ Replace these placeholders after approval:
 - `REPLACE_WITH_PUBLIC_PHONE`
 - `REPLACE_WITH_PUBLIC_EMAIL`
 - `REPLACE_WITH_PRIVACY_CONTACT_EMAIL`
-- `REPLACE_WITH_BRAD_SMITH_APPROVED_TITLE`
+- `REPLACE_WITH_ADVISOR_APPROVED_TITLE`
 - `REPLACE_WITH_APPROVED_STATES_SERVED`
 - public license information, if approved for display
 
@@ -78,7 +78,7 @@ Current appointment URL:
 
 `https://calendar.app.google/1ixxjwaF9GHC75rNA`
 
-Search all files for that URL and replace it if Brad approves a new scheduler. Appointment links should open with `target="_blank"` and `rel="noopener noreferrer"`.
+Search all files for that URL and replace it if the advisor approves a new scheduler. Appointment links should open with `target="_blank"` and `rel="noopener noreferrer"`.
 
 ## Connecting Formspree
 
@@ -87,7 +87,7 @@ GitHub Pages cannot process forms by itself.
 1. Create a Formspree form.
 2. Replace `REPLACE_WITH_FORMSPREE_ENDPOINT` in `contact.html` with the approved endpoint.
 3. Replace `REPLACE_WITH_THANK_YOU_URL` with `thank-you.html` or the approved destination.
-4. Configure Formspree email notifications to Brad's approved lead email.
+4. Configure Formspree email notifications to the advisor's approved lead email.
 5. Submit a test lead using non-sensitive test data.
 6. Confirm the email notification arrives.
 
@@ -132,7 +132,7 @@ Do not invent source citations or publish legal/tax/medical/investment/financial
 
 ## Main Broker Website Link
 
-Replace `REPLACE_WITH_BRAD_SMITH_MAIN_WEBSITE_URL` after the main insurance broker website URL is approved. Keep Network Insurance focused on insurance education and lead capture for life, health, annuity, and supplemental coverage.
+Replace `REPLACE_WITH_ADVISOR_MAIN_WEBSITE_URL` after the main insurance broker website URL is approved. Keep Network Insurance focused on insurance education and lead capture for life, health, annuity, and supplemental coverage.
 
 ## Legal Pages
 
@@ -140,7 +140,7 @@ Replace `REPLACE_WITH_BRAD_SMITH_MAIN_WEBSITE_URL` after the main insurance brok
 
 ## Deployment Through GitHub Pages
 
-Do not push changes until Brad approves.
+Do not push changes until the advisor approves.
 
 Typical flow after approval:
 

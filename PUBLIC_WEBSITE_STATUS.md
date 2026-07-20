@@ -49,7 +49,7 @@ Files uploaded to GitHub:
 - `SARAH_WEBSITE_FUNNEL_PROMPT.md`
 - `PUBLIC_WEBSITE_STATUS.md`
 - `assets/network-insurance-logo.png`
-- `assets/network-insurance-logo-cropped.png`
+- `assets/network-insurance-logo-web.png`
 
 GitHub branch created:
 
@@ -70,7 +70,7 @@ Verification:
 
 ## Facebook CTA Rule
 
-Use this public website URL as the CTA link on Network Insurance Facebook posts and Brad Smith Facebook posts about health coverage:
+Use this public website URL as the CTA link on Network Insurance Facebook posts and Advisor Facebook posts about health coverage:
 
 `https://networkinsurance83-netizen.github.io/Network-Insurance/`
 
