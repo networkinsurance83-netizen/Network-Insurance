@@ -84,7 +84,8 @@ function updateCategoryPanels() {
     const type = panel.getAttribute("data-category-panel");
     const show =
       (type === "health" && value.includes("health")) ||
-      (type === "life" && (value.includes("life") || value.includes("family protection")));
+      (type === "life" && (value.includes("life") || value.includes("family protection"))) ||
+      (type === "annuity" && (value.includes("annuit") || value.includes("retirement income")));
     panel.hidden = !show;
   });
 }

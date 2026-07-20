@@ -15,7 +15,7 @@ Do not treat the website as final until these placeholders and reviews are compl
 - [ ] Approved social links
 - [ ] Approved carrier logos and permission to use them
 - [ ] Approved coverage categories and products offered
-- [ ] Approved wording for health, life, supplemental, dental, vision, accident, critical illness, hospital indemnity, and disability income protection
+- [ ] Approved wording for life, health, annuities, supplemental, dental, vision, accident, critical illness, hospital indemnity, and disability income protection
 
 ## Lead Capture
 
@@ -28,6 +28,7 @@ Do not treat the website as final until these placeholders and reviews are compl
 - [ ] Spam/honeypot behavior verified
 - [ ] Health insurance conditional fields reviewed
 - [ ] Life insurance conditional fields reviewed
+- [ ] Annuity conditional fields reviewed
 - [ ] Sensitive-information warning reviewed
 
 ## Scheduling
@@ -50,6 +51,7 @@ Do not treat the website as final until these placeholders and reviews are compl
 - [ ] Fee language for coverage reviews
 - [ ] Life insurance underwriting, policy loan, surrender charge, lapse, and tax language reviewed
 - [ ] Indexed universal life illustration and cash-value caveats reviewed
+- [ ] Annuity surrender charge, liquidity, income rider, tax, carrier-strength, and suitability language reviewed
 - [ ] Supplemental limited-benefit and major-medical-not-replacement language reviewed
 - [ ] Health insurance eligibility, provider network, formulary, and subsidy language reviewed
 - [ ] Professional legal/compliance review completed
@@ -72,13 +74,15 @@ Do not treat the website as final until these placeholders and reviews are compl
 - [ ] Date-reviewed process for educational content
 - [ ] Health insurance articles reviewed
 - [ ] Life insurance articles reviewed
+- [ ] Annuity articles reviewed
 - [ ] Supplemental insurance articles reviewed
 
 ## Final QA
 
 - [ ] Home page
-- [ ] Health Insurance page
 - [ ] Life Insurance page
+- [ ] Health Insurance page
+- [ ] Annuities page
 - [ ] Supplemental Coverage page
 - [ ] Mobile navigation
 - [ ] Desktop navigation

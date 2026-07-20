@@ -1,6 +1,6 @@
 # Network Insurance Website
 
-Network Insurance is an insurance education and organic lead-generation website for individuals and families. It helps visitors understand health insurance, life insurance, supplemental coverage, dental, vision, accident, critical illness, hospital indemnity, and disability income protection, then request a quote or coverage review with Brad Smith.
+Network Insurance is an insurance education and organic lead-generation website for individuals and families. It helps visitors understand life insurance, health insurance, annuities, supplemental coverage, dental, vision, accident, critical illness, hospital indemnity, and disability income protection, then request a quote or coverage review with Brad Smith.
 
 Live URL after GitHub Pages deployment:
 
@@ -8,10 +8,11 @@ Live URL after GitHub Pages deployment:
 
 ## Intended Audience
 
-- Individuals and families comparing health coverage.
 - People reviewing life insurance needs for family protection, final expenses, mortgage protection, or business planning.
+- Individuals and families comparing health coverage.
+- People reviewing annuity options for retirement income, interest-crediting, beneficiary planning, or existing-contract questions.
 - Visitors comparing supplemental coverage such as dental, vision, accident, critical illness, hospital indemnity, and disability income protection.
-- People trying to understand premiums, deductibles, copays, coinsurance, out-of-pocket maximums, HMO/PPO/EPO plan types, provider networks, prescriptions, Marketplace coverage, private coverage, term life, whole life, universal life, indexed universal life, and limited-benefit supplemental policies.
+- People trying to understand premiums, deductibles, copays, coinsurance, out-of-pocket maximums, HMO/PPO/EPO plan types, provider networks, prescriptions, Marketplace coverage, private coverage, term life, whole life, universal life, indexed universal life, fixed annuities, indexed annuities, income riders, surrender periods, and limited-benefit supplemental policies.
 - Visitors coming from Facebook posts, educational videos, referrals, or search results.
 
 ## Project Structure
@@ -19,6 +20,7 @@ Live URL after GitHub Pages deployment:
 - `index.html` - homepage and primary funnel.
 - `health-insurance.html` - health insurance education and quote CTA page.
 - `life-insurance.html` - life insurance education and planning CTA page.
+- `annuities.html` - annuity education and retirement income review CTA page.
 - `supplemental-insurance.html` - supplemental coverage education and review CTA page.
 - `about.html` - Brad Smith introduction and trust positioning.
 - `learn.html` - insurance education page.
@@ -130,11 +132,11 @@ Do not invent source citations or publish legal/tax/medical/investment/financial
 
 ## Main Broker Website Link
 
-Replace `REPLACE_WITH_BRAD_SMITH_MAIN_WEBSITE_URL` after the main insurance broker website URL is approved. Keep Network Insurance focused on insurance education and lead capture for health, life, and supplemental coverage.
+Replace `REPLACE_WITH_BRAD_SMITH_MAIN_WEBSITE_URL` after the main insurance broker website URL is approved. Keep Network Insurance focused on insurance education and lead capture for life, health, annuity, and supplemental coverage.
 
 ## Legal Pages
 
-`privacy-policy.html`, `insurance-disclaimer.html`, and `terms.html` are placeholders. They must be reviewed by a qualified legal/compliance professional before final launch, especially life insurance illustration/cash-value language, indexed universal life caveats, supplemental limited-benefit language, privacy notices, and consent language.
+`privacy-policy.html`, `insurance-disclaimer.html`, and `terms.html` are placeholders. They must be reviewed by a qualified legal/compliance professional before final launch, especially life insurance illustration/cash-value language, indexed universal life caveats, annuity surrender/liquidity/tax/carrier language, supplemental limited-benefit language, privacy notices, and consent language.
 
 ## Deployment Through GitHub Pages
 
@@ -155,7 +157,7 @@ Then confirm GitHub Pages publishes the expected branch/folder and test:
 
 ## Testing Checklist
 
-- Home, Health Insurance, Life Insurance, Supplemental Coverage, About, Learning Center, Videos, Contact, Thank You, legal pages, and 404.
+- Home, Life Insurance, Health Insurance, Annuities, Supplemental Coverage, About, Learning Center, Videos, Contact, Thank You, legal pages, and 404.
 - Mobile and desktop navigation.
 - Required form fields.
 - Consent checkbox starts unchecked.
