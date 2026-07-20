@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Request an Insurance Quote or Coverage Review | Network Insurance</title>
+  <meta name="description" content="Request a quote or coverage review for health insurance, life insurance, supplemental coverage, dental, vision, accident, critical illness, hospital indemnity, or disability income protection.">
+  <link rel="canonical" href="https://networkinsurance83-netizen.github.io/Network-Insurance/contact.html">
+  <link rel="icon" href="assets/network-insurance-logo-cropped.png" type="image/png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <a class="brand" href="index.html"><img src="assets/network-insurance-logo-cropped.png" width="72" height="72" alt=""><span><strong>Network Insurance</strong><small>Insurance education and coverage solutions</small></span></a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
+      <a href="index.html">Home</a><a href="health-insurance.html">Health Insurance</a><a href="life-insurance.html">Life Insurance</a><a href="supplemental-insurance.html">Supplemental Coverage</a><a href="learn.html">Learning Center</a><a href="videos.html">Videos</a><a href="about.html">About Brad</a><a href="contact.html" aria-current="page">Contact</a><a class="nav-cta" href="contact.html">Request a Quote</a>
+    </nav>
+  </header>
+  <main id="main">
+    <section class="page-hero">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a> / Contact</nav>
+      <p class="eyebrow">Request a quote or coverage review</p>
+      <h1>Tell Brad what insurance help you need.</h1>
+      <p>GitHub Pages cannot process forms by itself. This form is prepared for Formspree or a future CRM connection and will safely direct visitors to schedule until the approved endpoint is added.</p>
+    </section>
+    <section class="section split">
+      <form class="lead-form legal-card" id="leadForm" action="REPLACE_WITH_FORMSPREE_ENDPOINT" method="post" data-thank-you-url="REPLACE_WITH_THANK_YOU_URL" novalidate>
+        <input type="hidden" name="_subject" value="Network Insurance coverage review request">
+        <label class="hp-field">Leave this field blank<input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label>
+        <label>First name<input name="first_name" autocomplete="given-name" required></label>
+        <label>Last name<input name="last_name" autocomplete="family-name" required></label>
+        <label>Phone number<input name="phone" type="tel" autocomplete="tel" required></label>
+        <label>Email address<input name="email" type="email" autocomplete="email" required></label>
+        <label>State<input name="state" autocomplete="address-level1" maxlength="2" required></label>
+        <label>ZIP code<input name="zip" inputmode="numeric" autocomplete="postal-code" required></label>
+        <label class="full-span">Coverage category
+          <select name="coverage_category" id="coverageCategory" required>
+            <option value="">Select one</option>
+            <option>Health Insurance</option>
+            <option>Life Insurance</option>
+            <option>Supplemental Insurance</option>
+            <option>Dental Coverage</option>
+            <option>Vision Coverage</option>
+            <option>Accident Coverage</option>
+            <option>Critical Illness Coverage</option>
+            <option>Hospital Indemnity</option>
+            <option>Disability Income Protection</option>
+            <option>Family Protection Review</option>
+            <option>Other</option>
+          </select>
+        </label>
+        <label>Preferred contact method
+          <select name="preferred_contact" required>
+            <option value="">Select one</option>
+            <option>Phone</option>
+            <option>Email</option>
+            <option>Text</option>
+          </select>
+        </label>
+        <label>Best time to contact<input name="best_time" placeholder="Morning, afternoon, evening, or specific time"></label>
+        <fieldset class="conditional-fields full-span" data-category-panel="health">
+          <legend>Optional health insurance details</legend>
+          <label>Individual or family coverage
+            <select name="health_coverage_type">
+              <option value="">Select one</option>
+              <option>Individual</option>
+              <option>Family</option>
+              <option>Not sure</option>
+            </select>
+          </label>
+          <label>Household size <span class="form-help">Optional</span><input name="household_size" inputmode="numeric"></label>
+          <label>Estimated annual household income <span class="form-help">Optional; used only to estimate whether financial assistance may be available. Eligibility is not guaranteed.</span><input name="estimated_household_income" inputmode="decimal"></label>
+          <label>Current coverage status
+            <select name="current_coverage_status">
+              <option value="">Select one</option>
+              <option>Currently insured</option>
+              <option>Uninsured</option>
+              <option>Losing coverage soon</option>
+              <option>Not sure</option>
+            </select>
+          </label>
+        </fieldset>
+        <fieldset class="conditional-fields full-span" data-category-panel="life">
+          <legend>Optional life insurance details</legend>
+          <label>Coverage purpose<input name="life_coverage_purpose" placeholder="Family protection, final expense, mortgage, business, or other"></label>
+          <label>Approximate coverage amount<input name="approximate_coverage_amount" inputmode="decimal" placeholder="Example: 250000"></label>
+          <label>Tobacco use
+            <select name="tobacco_use">
+              <option value="">Select one</option>
+              <option>No</option>
+              <option>Yes</option>
+              <option>Prefer to discuss</option>
+            </select>
+          </label>
+          <label>Preferred policy type
+            <select name="preferred_policy_type">
+              <option value="">Select one</option>
+              <option>Term life</option>
+              <option>Whole life</option>
+              <option>Universal life</option>
+              <option>Indexed universal life</option>
+              <option>Final expense</option>
+              <option>Mortgage protection</option>
+              <option>Not sure</option>
+            </select>
+          </label>
+          <label>Do you currently have life insurance?
+            <select name="current_life_insurance">
+              <option value="">Select one</option>
+              <option>Yes</option>
+              <option>No</option>
+              <option>Not sure</option>
+            </select>
+          </label>
+        </fieldset>
+        <label class="full-span">Optional short message<textarea name="message" placeholder="Share a brief note. Do not include detailed medical information."></textarea></label>
+        <p class="warning full-span">Do not submit Social Security numbers, payment information, passwords, Medicare numbers, banking information, credit card information, driver's license numbers, prescription lists, policy login information, sensitive identity documents, or detailed medical information through this form.</p>
+        <label class="checkbox-label full-span"><input type="checkbox" name="consent" required><span>I agree to be contacted by Network Insurance and Brad Smith by phone, email, or text regarding insurance products and services. Consent is not a condition of purchase. Message and data rates may apply. Final consent language requires legal and compliance review. Review the <a href="privacy-policy.html">Privacy Policy</a>, <a href="insurance-disclaimer.html">Insurance Disclaimer</a>, and <a href="terms.html">Terms</a>.</span></label>
+        <button class="button primary full-span" type="submit">Send My Request</button>
+        <p class="form-status full-span" id="formStatus" role="status" aria-live="polite">If the form is not connected yet, use the appointment button below.</p>
+      </form>
+      <aside class="cta-card">
+        <h2>Prefer to schedule directly?</h2>
+        <p>Use Brad's existing Google Calendar appointment link. If the scheduler does not open, return to this page and use the approved public phone or email once supplied.</p>
+        <a class="button primary full" href="https://calendar.app.google/1ixxjwaF9GHC75rNA" target="_blank" rel="noopener noreferrer">Schedule a Consultation</a>
+        <p class="placeholder-note">Fallback contact placeholders: REPLACE_WITH_PUBLIC_PHONE and REPLACE_WITH_PUBLIC_EMAIL.</p>
+      </aside>
+    </section>
+  </main>
+  <footer class="site-footer"><nav><a href="privacy-policy.html">Privacy Policy</a><a href="insurance-disclaimer.html">Insurance Disclaimer</a><a href="terms.html">Terms</a></nav><p class="fine-print">Submitting a request does not create coverage and does not guarantee approval, savings, pricing, eligibility, benefits, or provider access.</p></footer>
+  <script src="script.js" defer></script>
+</body>
+</html>
