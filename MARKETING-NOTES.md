@@ -15,6 +15,7 @@ These notes are internal and should not appear on public website pages.
 - HMO, PPO, EPO, provider networks, and prescription formularies.
 - Marketplace coverage, private coverage, family coverage, employer coverage, and Medicare education.
 - Term life, whole life, universal life, indexed universal life, final expense, mortgage protection, family protection, and business/key-person coverage.
+- Fixed annuities, fixed indexed annuities, retirement income, income riders, surrender periods, beneficiary planning, and existing annuity reviews.
 - Dental, vision, accident, critical illness, hospital indemnity, and disability income protection.
 - Healthy eating, added sugar, fasting, preventive care, and wellness reminders.
 
@@ -32,6 +33,10 @@ These notes are internal and should not appear on public website pages.
 - How much life insurance might a family consider?
 - Final expense basics.
 - Indexed universal life basics and risks.
+- Fixed annuity basics.
+- Fixed indexed annuity basics.
+- Annuity income rider basics.
+- What is a surrender period?
 - Accident insurance basics.
 - Critical illness insurance basics.
 - Hospital indemnity basics.
@@ -45,3 +50,4 @@ These notes are internal and should not appear on public website pages.
 - Cite credible sources in posts and keep claims educational.
 - Do not describe supplemental policies as replacements for major medical coverage.
 - Do not present life insurance illustrations, cash value, indexed universal life performance, or tax treatment as guaranteed.
+- Do not present annuity income, credited interest, liquidity, or tax treatment as guaranteed unless the exact contract language supports it.

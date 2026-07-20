@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Request an Insurance Quote or Coverage Review | Network Insurance</title>
-  <meta name="description" content="Request a quote or coverage review for health insurance, life insurance, supplemental coverage, dental, vision, accident, critical illness, hospital indemnity, or disability income protection.">
+  <meta name="description" content="Request a quote or coverage review for life insurance, health insurance, annuities, supplemental coverage, dental, vision, accident, critical illness, hospital indemnity, or disability income protection.">
   <link rel="canonical" href="https://networkinsurance83-netizen.github.io/Network-Insurance/contact.html">
   <link rel="icon" href="assets/network-insurance-logo-cropped.png" type="image/png">
   <link rel="stylesheet" href="styles.css">
@@ -15,7 +15,7 @@
     <a class="brand" href="index.html"><img src="assets/network-insurance-logo-cropped.png" width="72" height="72" alt=""><span><strong>Network Insurance</strong><small>Insurance education and coverage solutions</small></span></a>
     <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
     <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
-      <a href="index.html">Home</a><a href="health-insurance.html">Health Insurance</a><a href="life-insurance.html">Life Insurance</a><a href="supplemental-insurance.html">Supplemental Coverage</a><a href="learn.html">Learning Center</a><a href="videos.html">Videos</a><a href="about.html">About Brad</a><a href="contact.html" aria-current="page">Contact</a><a class="nav-cta" href="contact.html">Request a Quote</a>
+      <a href="index.html">Home</a><a href="life-insurance.html">Life Insurance</a><a href="health-insurance.html">Health Insurance</a><a href="annuities.html">Annuities</a><a href="supplemental-insurance.html">More Coverage</a><a href="learn.html">Learning Center</a><a href="videos.html">Videos</a><a href="about.html">About Brad</a><a href="contact.html" aria-current="page">Contact</a><a class="nav-cta" href="contact.html">Request a Quote</a>
     </nav>
   </header>
   <main id="main">
@@ -38,8 +38,10 @@
         <label class="full-span">Coverage category
           <select name="coverage_category" id="coverageCategory" required>
             <option value="">Select one</option>
-            <option>Health Insurance</option>
             <option>Life Insurance</option>
+            <option>Health Insurance</option>
+            <option>Annuities</option>
+            <option>Retirement Income Review</option>
             <option>Supplemental Insurance</option>
             <option>Dental Coverage</option>
             <option>Vision Coverage</option>
@@ -115,8 +117,41 @@
             </select>
           </label>
         </fieldset>
+        <fieldset class="conditional-fields full-span" data-category-panel="annuity">
+          <legend>Optional annuity details</legend>
+          <label>Main annuity goal
+            <select name="annuity_goal">
+              <option value="">Select one</option>
+              <option>Retirement income</option>
+              <option>Protecting principal</option>
+              <option>Interest-crediting potential</option>
+              <option>Beneficiary planning</option>
+              <option>Reviewing an existing annuity</option>
+              <option>Not sure</option>
+            </select>
+          </label>
+          <label>Approximate amount to review<input name="annuity_review_amount" inputmode="decimal" placeholder="Optional"></label>
+          <label>Money type
+            <select name="annuity_money_type">
+              <option value="">Select one</option>
+              <option>IRA or other qualified account</option>
+              <option>Non-qualified savings</option>
+              <option>Existing annuity</option>
+              <option>Not sure</option>
+            </select>
+          </label>
+          <label>When income may be needed
+            <select name="annuity_income_timing">
+              <option value="">Select one</option>
+              <option>Now</option>
+              <option>Within 1-5 years</option>
+              <option>More than 5 years</option>
+              <option>Not sure</option>
+            </select>
+          </label>
+        </fieldset>
         <label class="full-span">Optional short message<textarea name="message" placeholder="Share a brief note. Do not include detailed medical information."></textarea></label>
-        <p class="warning full-span">Do not submit Social Security numbers, payment information, passwords, Medicare numbers, banking information, credit card information, driver's license numbers, prescription lists, policy login information, sensitive identity documents, or detailed medical information through this form.</p>
+        <p class="warning full-span">Do not submit Social Security numbers, payment information, passwords, Medicare numbers, banking information, credit card information, driver's license numbers, prescription lists, policy login information, sensitive identity documents, detailed medical information, account numbers, or financial statements through this form.</p>
         <label class="checkbox-label full-span"><input type="checkbox" name="consent" required><span>I agree to be contacted by Network Insurance and Brad Smith by phone, email, or text regarding insurance products and services. Consent is not a condition of purchase. Message and data rates may apply. Final consent language requires legal and compliance review. Review the <a href="privacy-policy.html">Privacy Policy</a>, <a href="insurance-disclaimer.html">Insurance Disclaimer</a>, and <a href="terms.html">Terms</a>.</span></label>
         <button class="button primary full-span" type="submit">Send My Request</button>
         <p class="form-status full-span" id="formStatus" role="status" aria-live="polite">If the form is not connected yet, use the appointment button below.</p>
@@ -129,7 +164,7 @@
       </aside>
     </section>
   </main>
-  <footer class="site-footer"><nav><a href="privacy-policy.html">Privacy Policy</a><a href="insurance-disclaimer.html">Insurance Disclaimer</a><a href="terms.html">Terms</a></nav><p class="fine-print">Submitting a request does not create coverage and does not guarantee approval, savings, pricing, eligibility, benefits, or provider access.</p></footer>
+  <footer class="site-footer"><nav><a href="privacy-policy.html">Privacy Policy</a><a href="insurance-disclaimer.html">Insurance Disclaimer</a><a href="terms.html">Terms</a></nav><p class="fine-print">Submitting a request does not create coverage or an annuity contract and does not guarantee approval, savings, pricing, eligibility, benefits, provider access, income, credited interest, or product availability.</p></footer>
   <script src="script.js" defer></script>
 </body>
 </html>
