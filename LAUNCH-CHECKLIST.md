@@ -6,7 +6,7 @@ Do not treat the website as final until these placeholders and reviews are compl
 
 - [ ] Public business email
 - [ ] Public business phone number
-- [ ] Brad Smith's approved professional title
+- [ ] Advisor's approved professional title
 - [ ] Approved professional headshot
 - [ ] Public license information, if approved for display
 - [ ] Approved states served
@@ -39,7 +39,7 @@ Do not treat the website as final until these placeholders and reviews are compl
 
 ## Cross-Linking
 
-- [ ] Main Brad Smith insurance website URL
+- [ ] Main Advisor insurance website URL
 - [ ] Main broker website links back to Network Insurance as the insurance education and coverage solutions website
 
 ## Legal and Compliance

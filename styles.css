@@ -87,8 +87,8 @@ a:hover {
 }
 
 .brand img {
-  width: 54px;
-  height: 54px;
+  width: 64px;
+  height: 64px;
   object-fit: contain;
 }
 
@@ -608,8 +608,8 @@ legend {
   }
 
   .brand img {
-    width: 46px;
-    height: 46px;
+    width: 52px;
+    height: 52px;
   }
 
   .brand small {
