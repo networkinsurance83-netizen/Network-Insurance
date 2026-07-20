@@ -1,15 +1,93 @@
+const menuToggle = document.querySelector(".menu-toggle");
+const siteNav = document.querySelector("#site-nav");
+
+menuToggle?.addEventListener("click", () => {
+  const isOpen = siteNav?.classList.toggle("is-open") ?? false;
+  menuToggle.setAttribute("aria-expanded", String(isOpen));
+});
+
+siteNav?.addEventListener("click", (event) => {
+  if (event.target instanceof HTMLAnchorElement) {
+    siteNav.classList.remove("is-open");
+    menuToggle?.setAttribute("aria-expanded", "false");
+  }
+});
+
 const leadForm = document.querySelector("#leadForm");
 const formStatus = document.querySelector("#formStatus");
+const coverageCategory = document.querySelector("#coverageCategory");
+const categoryPanels = document.querySelectorAll("[data-category-panel]");
 
-leadForm?.addEventListener("submit", (event) => {
-  const action = leadForm.getAttribute("action");
+function setStatus(message, type = "info") {
+  if (!formStatus) return;
+  formStatus.textContent = message;
+  formStatus.className = `form-status ${type === "error" ? "error-message" : type === "success" ? "success-message" : ""}`;
+}
 
-  if (!action || action === "#") {
-    event.preventDefault();
-    formStatus.textContent = "Lead form is designed and ready. Connect a Google Form endpoint before publishing paid traffic.";
-    formStatus.style.color = "#9a5c00";
+leadForm?.addEventListener("submit", async (event) => {
+  event.preventDefault();
+
+  if (!leadForm.checkValidity()) {
+    leadForm.reportValidity();
+    setStatus("Please complete the required fields and consent checkbox.", "error");
     return;
   }
 
-  formStatus.textContent = "Sending your request...";
+  const endpoint = leadForm.getAttribute("action") || "";
+  const isPlaceholder = endpoint.includes("REPLACE_WITH_FORMSPREE_ENDPOINT") || endpoint === "#";
+  const honeypot = leadForm.querySelector('input[name="_gotcha"]');
+
+  if (honeypot?.value) {
+    setStatus("Thank you. Your request has been received.", "success");
+    leadForm.reset();
+    return;
+  }
+
+  if (isPlaceholder) {
+    setStatus("The online quote and coverage review form is launch-ready but not connected yet. Please use the Schedule a Consultation button to reach Brad.", "error");
+    return;
+  }
+
+  const submitButton = leadForm.querySelector('button[type="submit"]');
+  submitButton.disabled = true;
+  submitButton.textContent = "Sending...";
+  setStatus("Sending your request...");
+
+  try {
+    const response = await fetch(endpoint, {
+      method: "POST",
+      headers: { Accept: "application/json" },
+      body: new FormData(leadForm)
+    });
+
+    if (!response.ok) throw new Error("Form submission failed");
+
+    setStatus("Thank you. Your request was sent. Brad will follow up using your preferred contact method.", "success");
+    leadForm.reset();
+
+    const thankYou = leadForm.dataset.thankYouUrl;
+    if (thankYou && !thankYou.includes("REPLACE_WITH_THANK_YOU_URL")) {
+      window.location.href = thankYou;
+    }
+  } catch (error) {
+    setStatus("The form could not be sent right now. Please schedule an appointment or try again later.", "error");
+  } finally {
+    submitButton.disabled = false;
+    submitButton.textContent = "Send My Request";
+  }
 });
+
+function updateCategoryPanels() {
+  if (!coverageCategory) return;
+  const value = coverageCategory.value.toLowerCase();
+  categoryPanels.forEach((panel) => {
+    const type = panel.getAttribute("data-category-panel");
+    const show =
+      (type === "health" && value.includes("health")) ||
+      (type === "life" && (value.includes("life") || value.includes("family protection")));
+    panel.hidden = !show;
+  });
+}
+
+coverageCategory?.addEventListener("change", updateCategoryPanels);
+updateCategoryPanels();

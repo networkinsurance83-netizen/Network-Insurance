@@ -1,91 +1,174 @@
-# Network Insurance Website Funnel
+# Network Insurance Website
 
-Created: 2026-05-05
+Network Insurance is an insurance education and organic lead-generation website for individuals and families. It helps visitors understand health insurance, life insurance, supplemental coverage, dental, vision, accident, critical illness, hospital indemnity, and disability income protection, then request a quote or coverage review with Brad Smith.
 
-## Goal
-
-Create a low-cost lead funnel for Network Insurance that can be used from Facebook posts, ads, QR codes, and social profiles.
-
-## Recommended Zero-Cost Stack
-
-- Website: static HTML/CSS/JS in this folder.
-- Hosting: Cloudflare Pages or GitHub Pages free static hosting.
-- Lead capture: Google Forms connected to Google Sheets.
-- Facebook CTA: `https://networkinsurance83-netizen.github.io/Network-Insurance/`.
-- Appointment CTA inside website: Google Calendar booking page.
-- CRM: existing `Network Insurance CRM` Google Sheet under `networkinsurance83@gmail.com`.
-
-## Files
-
-- `index.html` - landing page and lead funnel.
-- `styles.css` - responsive visual design.
-- `script.js` - lead-form guard until Google Forms endpoint is connected.
-- `VIDEO_CONTENT_PLAN.md` - first video topics and scripts.
-- `SARAH_WEBSITE_FUNNEL_PROMPT.md` - prompt Sarah should save and follow.
-- `assets/network-insurance-logo.png` - original brand logo supplied by Brad.
-- `assets/network-insurance-logo-cropped.png` - cropped website-use version of the brand logo.
-
-## Brand Colors
-
-The website uses the Network Insurance logo as its color base:
-
-- Navy: `#173f73`
-- Dark navy: `#0e294d`
-- Charcoal: `#504e4e`
-- Silver/off-white background: `#f6f7f9`
-
-## Current Status
-
-- Website draft: complete.
-- Lead form design: complete.
-- Real form submission endpoint: blocked until Google Form is created/connected.
-- Appointment link: active, using `https://calendar.app.google/1ixxjwaF9GHC75rNA`.
-- Temporary public preview URL: `https://vhs-sources-discharge-dare.trycloudflare.com`.
-- Permanent public website URL for Facebook posts: `https://networkinsurance83-netizen.github.io/Network-Insurance/`.
-- Deployment: GitHub Pages live.
-
-## Facebook CTA Rule
-
-Network Insurance Facebook posts and Brad Smith Facebook posts about health coverage should send viewers to:
+Live URL after GitHub Pages deployment:
 
 `https://networkinsurance83-netizen.github.io/Network-Insurance/`
 
-The website should then offer both:
+## Intended Audience
 
-- Lead form for help/review requests.
-- Appointment booking through `https://calendar.app.google/1ixxjwaF9GHC75rNA`.
+- Individuals and families comparing health coverage.
+- People reviewing life insurance needs for family protection, final expenses, mortgage protection, or business planning.
+- Visitors comparing supplemental coverage such as dental, vision, accident, critical illness, hospital indemnity, and disability income protection.
+- People trying to understand premiums, deductibles, copays, coinsurance, out-of-pocket maximums, HMO/PPO/EPO plan types, provider networks, prescriptions, Marketplace coverage, private coverage, term life, whole life, universal life, indexed universal life, and limited-benefit supplemental policies.
+- Visitors coming from Facebook posts, educational videos, referrals, or search results.
 
-Do not use the local `file://` website path, temporary Cloudflare Tunnel URL, or direct Google Calendar link in Facebook posts.
+## Project Structure
 
-The Google Calendar booking link stays inside the website only.
+- `index.html` - homepage and primary funnel.
+- `health-insurance.html` - health insurance education and quote CTA page.
+- `life-insurance.html` - life insurance education and planning CTA page.
+- `supplemental-insurance.html` - supplemental coverage education and review CTA page.
+- `about.html` - Brad Smith introduction and trust positioning.
+- `learn.html` - insurance education page.
+- `videos.html` - video placeholder library with transcript space.
+- `contact.html` - launch-ready quote and coverage review request form.
+- `thank-you.html` - post-submission destination.
+- `privacy-policy.html` - privacy placeholder for legal review.
+- `insurance-disclaimer.html` - insurance disclaimer placeholder for legal review.
+- `terms.html` - terms placeholder.
+- `404.html` - GitHub Pages not-found page.
+- `styles.css` - shared responsive styling.
+- `script.js` - mobile menu and form behavior.
+- `robots.txt` and `sitemap.xml` - SEO discovery files.
+- `MARKETING-NOTES.md` - internal campaign notes, not public page content.
+- `LAUNCH-CHECKLIST.md` - required placeholders and final review tasks.
+- `assets/` - approved logos and images.
 
-## Google Form Fields
+## Preview Locally
 
-Create a Google Form named `Network Insurance Lead Request` with these fields:
+From this folder:
 
-1. Full name
-2. Phone number
-3. Email
-4. State
-5. ZIP code
-6. What do you want help with?
-7. Projected household income for this year: `Used to estimate whether financial assistance may be available. Eligibility is not guaranteed.`
-8. Preferred appointment time
-9. Consent checkbox: `I agree to be contacted by Network Insurance about health coverage options. Message and data rates may apply.`
-10. Source URL or source post, optional hidden/manual field if automation supports it.
+```bash
+python3 -m http.server 8088
+```
 
-Connect responses to the active `Network Insurance CRM` workbook:
+Then open:
 
-`https://docs.google.com/spreadsheets/d/1Zh0Xp050Rm0KWbPbPcTgqjbaa--hL079n6EBrzjHXQ0/edit`
+`http://127.0.0.1:8088/`
 
-## Deployment Recommendation
+## Editing Text
 
-Best low-cost route: Cloudflare Pages free plan or GitHub Pages. Cloudflare Pages is preferred if Brad later wants a custom domain, analytics, and fast global delivery.
+Edit the relevant `.html` file directly. Keep public pages customer-focused. Internal campaign notes belong in `MARKETING-NOTES.md`, not in page copy.
 
-## Compliance Notes
+## Replacing Images
 
-- Do not promise savings, approval, eligibility, or specific coverage.
-- If asking for projected household income, state that it is used only to estimate possible financial assistance and does not guarantee eligibility or savings.
-- Do not ask for Social Security numbers, payment details, passwords, or medical records on the lead form.
-- Use `may`, `can help`, `options vary`, and `if eligible`.
-- Include the website disclaimer on every public page.
+- Current logo: `assets/network-insurance-logo-cropped.png`
+- Add Brad's approved headshot to `assets/` and replace the `headshot-placeholder` section in `about.html` and `index.html`.
+- Add image `width` and `height` attributes.
+- Use compressed images and avoid Base64-embedded images.
+
+## Updating Contact Information
+
+Replace these placeholders after approval:
+
+- `REPLACE_WITH_PUBLIC_PHONE`
+- `REPLACE_WITH_PUBLIC_EMAIL`
+- `REPLACE_WITH_PRIVACY_CONTACT_EMAIL`
+- `REPLACE_WITH_BRAD_SMITH_APPROVED_TITLE`
+- `REPLACE_WITH_APPROVED_STATES_SERVED`
+- public license information, if approved for display
+
+## Updating the Scheduling Link
+
+Current appointment URL:
+
+`https://calendar.app.google/1ixxjwaF9GHC75rNA`
+
+Search all files for that URL and replace it if Brad approves a new scheduler. Appointment links should open with `target="_blank"` and `rel="noopener noreferrer"`.
+
+## Connecting Formspree
+
+GitHub Pages cannot process forms by itself.
+
+1. Create a Formspree form.
+2. Replace `REPLACE_WITH_FORMSPREE_ENDPOINT` in `contact.html` with the approved endpoint.
+3. Replace `REPLACE_WITH_THANK_YOU_URL` with `thank-you.html` or the approved destination.
+4. Configure Formspree email notifications to Brad's approved lead email.
+5. Submit a test lead using non-sensitive test data.
+6. Confirm the email notification arrives.
+
+Do not place API keys, passwords, or secret tokens in frontend JavaScript. Do not collect Social Security numbers, Medicare numbers, payment information, login credentials, sensitive identity documents, or detailed medical information through the public form.
+
+## Google Sheets or CRM Automation
+
+Optional future flow:
+
+- Formspree to Google Sheets through Zapier, Make, n8n, or another approved automation.
+- Formspree or future form provider to CRM webhook.
+- Future placeholder: `REPLACE_WITH_CRM_WEBHOOK`
+
+Document the automation owner, destination sheet/CRM, and test proof before driving paid traffic.
+
+## Adding Videos
+
+`videos.html` uses clearly labeled placeholders. For each real video, add:
+
+- Approved video URL or embed.
+- Accessible title.
+- Short summary.
+- Transcript or transcript placeholder.
+- Date reviewed.
+
+Do not use fake play buttons or fake video links.
+
+## Adding Educational Articles
+
+Future articles should include:
+
+- Plain-language explanation.
+- Key questions to ask.
+- General examples.
+- Credible source placeholders or citations.
+- Quote or coverage-review CTA.
+- Appointment button.
+- Date reviewed or updated.
+- Insurance disclaimer.
+
+Do not invent source citations or publish legal/tax/medical/investment/financial advice.
+
+## Main Broker Website Link
+
+Replace `REPLACE_WITH_BRAD_SMITH_MAIN_WEBSITE_URL` after the main insurance broker website URL is approved. Keep Network Insurance focused on insurance education and lead capture for health, life, and supplemental coverage.
+
+## Legal Pages
+
+`privacy-policy.html`, `insurance-disclaimer.html`, and `terms.html` are placeholders. They must be reviewed by a qualified legal/compliance professional before final launch, especially life insurance illustration/cash-value language, indexed universal life caveats, supplemental limited-benefit language, privacy notices, and consent language.
+
+## Deployment Through GitHub Pages
+
+Do not push changes until Brad approves.
+
+Typical flow after approval:
+
+```bash
+git status
+git add .
+git commit -m "Improve Network Insurance website funnel"
+git push origin main
+```
+
+Then confirm GitHub Pages publishes the expected branch/folder and test:
+
+`https://networkinsurance83-netizen.github.io/Network-Insurance/`
+
+## Testing Checklist
+
+- Home, Health Insurance, Life Insurance, Supplemental Coverage, About, Learning Center, Videos, Contact, Thank You, legal pages, and 404.
+- Mobile and desktop navigation.
+- Required form fields.
+- Consent checkbox starts unchecked.
+- Placeholder form endpoint blocks submission gracefully.
+- Connected Formspree endpoint submits successfully.
+- Appointment link opens safely.
+- Internal and external links.
+- Images load and have alt text where meaningful.
+- Browser console has no errors.
+- No horizontal overflow on mobile.
+- Keyboard focus is visible.
+- Sitemap and robots load.
+
+## Placeholders Remaining
+
+See `LAUNCH-CHECKLIST.md`.
