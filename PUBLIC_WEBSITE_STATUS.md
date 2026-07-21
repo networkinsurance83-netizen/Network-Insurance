@@ -57,7 +57,7 @@ GitHub branch created:
 
 GitHub Pages URL:
 
-`https://networkinsurance83-netizen.github.io/Network-Insurance/`
+`https://networkinsurance.org/`
 
 Current GitHub Pages status:
 
@@ -66,12 +66,12 @@ Current GitHub Pages status:
 Verification:
 
 - `git ls-remote` confirms `main` and `gh-pages` branches exist.
-- `curl -I https://networkinsurance83-netizen.github.io/Network-Insurance/` returned `HTTP/2 200`.
+- `curl -I https://networkinsurance.org/` returned `HTTP/2 200`.
 
 ## Facebook CTA Rule
 
 Use this public website URL as the CTA link on Network Insurance Facebook posts and Advisor Facebook posts about health coverage:
 
-`https://networkinsurance83-netizen.github.io/Network-Insurance/`
+`https://networkinsurance.org/`
 
 Do not use the direct Google Calendar booking link in Facebook post copy. The booking link remains inside the website.
