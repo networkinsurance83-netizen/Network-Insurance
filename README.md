@@ -4,7 +4,7 @@ Network Insurance is an insurance education and organic lead-generation website 
 
 Live URL after GitHub Pages deployment:
 
-`https://networkinsurance83-netizen.github.io/Network-Insurance/`
+`https://networkinsurance.org/`
 
 ## Intended Audience
 
@@ -153,7 +153,7 @@ git push origin main
 
 Then confirm GitHub Pages publishes the expected branch/folder and test:
 
-`https://networkinsurance83-netizen.github.io/Network-Insurance/`
+`https://networkinsurance.org/`
 
 ## Testing Checklist
 

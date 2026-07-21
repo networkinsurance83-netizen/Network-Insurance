@@ -5,7 +5,7 @@ Sarah, read and save this.
 Network Insurance needs Network Insurance to have a low-cost website funnel that attracts people from Facebook/social media, educates them, captures lead information, and routes interested people to the Network Insurance Google Calendar booking page.
 
 Public website CTA for Facebook posts:
-`https://networkinsurance83-netizen.github.io/Network-Insurance/`
+`https://networkinsurance.org/`
 
 Website folder:
 `/Users/Owner/.openclaw/workspace/network-insurance-website`
@@ -42,7 +42,7 @@ Your next tasks:
 7. Use `VIDEO_CONTENT_PLAN.md` to create short educational videos when HeyGen or another video tool is funded.
 
 Rules:
-- The public site is live at `https://networkinsurance83-netizen.github.io/Network-Insurance/`; verify it loads before publishing posts that use it.
+- The public site is live at `https://networkinsurance.org/`; verify it loads before publishing posts that use it.
 - Do not claim leads are being captured until a test lead is submitted and appears in Google Sheets/CRM.
 - Do not request SSN, payment details, passwords, or medical records.
 - Do not promise savings, approval, eligibility, coverage, provider access, or health outcomes.

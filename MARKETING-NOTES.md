@@ -6,7 +6,7 @@ These notes are internal and should not appear on public website pages.
 
 - Use the Network Insurance website as the destination for Facebook posts, educational videos, QR codes, referrals, and organic search traffic.
 - Keep public calls to action focused on `Request a Quote`, `Request a Coverage Review`, `Schedule a Consultation`, and `Learn More`.
-- The public website URL is `https://networkinsurance83-netizen.github.io/Network-Insurance/`.
+- The public website URL is `https://networkinsurance.org/`.
 - Keep the direct Google Calendar link inside the website whenever possible.
 
 ## Suggested Topics

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://networkinsurance83-netizen.github.io/Network-Insurance/sitemap.xml
+Sitemap: https://networkinsurance.org/sitemap.xml
