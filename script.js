@@ -29,7 +29,7 @@ leadForm?.addEventListener("submit", async (event) => {
 
   if (!leadForm.checkValidity()) {
     leadForm.reportValidity();
-    setStatus("Please complete the required fields and consent checkbox.", "error");
+    setStatus("Please complete the required fields.", "error");
     return;
   }
 
@@ -50,7 +50,7 @@ leadForm?.addEventListener("submit", async (event) => {
   try {
     const formData = new FormData(leadForm);
     const payload = Object.fromEntries(formData.entries());
-    payload.contact_consent = formData.has("contact_consent");
+    payload.sms_service_consent = formData.has("sms_service_consent");
     payload.sms_marketing_consent = formData.has("sms_marketing_consent");
     payload.website = String(formData.get("_gotcha") || "");
 
