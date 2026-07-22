@@ -25,7 +25,7 @@ Live URL after GitHub Pages deployment:
 - `about.html` - Advisor introduction and trust positioning.
 - `learn.html` - insurance education page.
 - `videos.html` - video placeholder library with transcript space.
-- `contact.html` - launch-ready quote and coverage review request form.
+- `contact.html` - live quote and coverage review request form connected to the CRM.
 - `thank-you.html` - post-submission destination.
 - `privacy-policy.html` - privacy placeholder for legal review.
 - `insurance-disclaimer.html` - insurance disclaimer placeholder for legal review.
@@ -80,16 +80,9 @@ Current appointment URL:
 
 Search all files for that URL and replace it if the advisor approves a new scheduler. Appointment links should open with `target="_blank"` and `rel="noopener noreferrer"`.
 
-## Connecting Formspree
+## CRM Lead Capture
 
-GitHub Pages cannot process forms by itself.
-
-1. Create a Formspree form.
-2. Replace `REPLACE_WITH_FORMSPREE_ENDPOINT` in `contact.html` with the approved endpoint.
-3. Replace `REPLACE_WITH_THANK_YOU_URL` with `thank-you.html` or the approved destination.
-4. Configure Formspree email notifications to the advisor's approved lead email.
-5. Submit a test lead using non-sensitive test data.
-6. Confirm the email notification arrives.
+The contact form submits to the public lead endpoint on the deployed Insurance Agency CRM. The CRM validates the request, saves the contact, lead, source, consent, and activity records in Supabase, and triggers the approved n8n lead notification.
 
 Do not place API keys, passwords, or secret tokens in frontend JavaScript. Do not collect Social Security numbers, Medicare numbers, payment information, login credentials, sensitive identity documents, or detailed medical information through the public form.
 
@@ -161,8 +154,8 @@ Then confirm GitHub Pages publishes the expected branch/folder and test:
 - Mobile and desktop navigation.
 - Required form fields.
 - Consent checkbox starts unchecked.
-- Placeholder form endpoint blocks submission gracefully.
-- Connected Formspree endpoint submits successfully.
+- Invalid or unavailable CRM responses show a clear retry message.
+- Connected CRM endpoint submits successfully.
 - Appointment link opens safely.
 - Internal and external links.
 - Images load and have alt text where meaningful.
