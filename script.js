@@ -34,17 +34,11 @@ leadForm?.addEventListener("submit", async (event) => {
   }
 
   const endpoint = leadForm.getAttribute("action") || "";
-  const isPlaceholder = endpoint.includes("REPLACE_WITH_FORMSPREE_ENDPOINT") || endpoint === "#";
   const honeypot = leadForm.querySelector('input[name="_gotcha"]');
 
   if (honeypot?.value) {
     setStatus("Thank you. Your request has been received.", "success");
     leadForm.reset();
-    return;
-  }
-
-  if (isPlaceholder) {
-    setStatus("The online quote and coverage review form is launch-ready but not connected yet. Please use the Schedule a Consultation button to reach Brad.", "error");
     return;
   }
 
@@ -54,13 +48,20 @@ leadForm?.addEventListener("submit", async (event) => {
   setStatus("Sending your request...");
 
   try {
+    const formData = new FormData(leadForm);
+    const payload = Object.fromEntries(formData.entries());
+    payload.contact_consent = formData.has("contact_consent");
+    payload.sms_marketing_consent = formData.has("sms_marketing_consent");
+    payload.website = String(formData.get("_gotcha") || "");
+
     const response = await fetch(endpoint, {
       method: "POST",
-      headers: { Accept: "application/json" },
-      body: new FormData(leadForm)
+      headers: { Accept: "application/json", "Content-Type": "application/json" },
+      body: JSON.stringify(payload)
     });
 
-    if (!response.ok) throw new Error("Form submission failed");
+    const result = await response.json().catch(() => ({}));
+    if (!response.ok || !result.ok) throw new Error(result.message || "Form submission failed");
 
     setStatus("Thank you. Your request was sent. Brad will follow up using your preferred contact method.", "success");
     leadForm.reset();
