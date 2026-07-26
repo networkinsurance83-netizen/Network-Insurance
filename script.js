@@ -72,7 +72,7 @@ leadForm?.addEventListener("submit", async (event) => {
     const result = await response.json().catch(() => ({}));
     if (!response.ok || !result.ok) throw new Error(result.message || "Form submission failed");
 
-    setStatus("Thank you. Your request was sent. Brad will follow up using your preferred contact method.", "success");
+    setStatus("Thank you. Your request was sent. An advisor will review it and follow up using your preferred contact method.", "success");
     leadForm.reset();
 
     const thankYou = leadForm.dataset.thankYouUrl;
