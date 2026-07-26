@@ -33,6 +33,14 @@ leadForm?.addEventListener("submit", async (event) => {
     return;
   }
 
+  const preferredContact = leadForm.querySelector('[name="preferred_contact"]');
+  const serviceSms = leadForm.querySelector('[name="sms_service_consent"]');
+  if (preferredContact?.value === "Text" && !serviceSms?.checked) {
+    setStatus("Please authorize service text messages when Text is selected as your preferred contact method.", "error");
+    serviceSms?.focus();
+    return;
+  }
+
   const endpoint = leadForm.getAttribute("action") || "";
   const honeypot = leadForm.querySelector('input[name="_gotcha"]');
 
