@@ -61,7 +61,15 @@
             <option>Text</option>
           </select>
         </label>
-        <label>Best time to contact<input name="best_time" placeholder="Morning, afternoon, evening, or specific time"></label>
+        <label>Best time to contact
+          <select name="best_time" required>
+            <option value="">Select one</option>
+            <option>Morning</option>
+            <option>Afternoon</option>
+            <option>Evening</option>
+            <option>Pacific Time</option>
+          </select>
+        </label>
         <fieldset class="conditional-fields full-span" data-category-panel="health">
           <legend>Optional health insurance details</legend>
           <label>Individual or family coverage
