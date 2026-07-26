@@ -94,7 +94,19 @@
         </fieldset>
         <fieldset class="conditional-fields full-span" data-category-panel="life">
           <legend>Optional life insurance details</legend>
-          <label>Coverage purpose<input name="life_coverage_purpose" placeholder="Family protection, final expense, mortgage, business, or other"></label>
+          <label>Coverage purpose
+            <select name="life_coverage_purpose">
+              <option value="">Select one</option>
+              <option>Family protection</option>
+              <option>Income replacement</option>
+              <option>Final expenses</option>
+              <option>Mortgage protection</option>
+              <option>Business protection</option>
+              <option>Estate planning</option>
+              <option>Not sure</option>
+              <option>Other</option>
+            </select>
+          </label>
           <label>Approximate coverage amount<input name="approximate_coverage_amount" inputmode="decimal" placeholder="Example: 250000"></label>
           <label>Tobacco use
             <select name="tobacco_use">
