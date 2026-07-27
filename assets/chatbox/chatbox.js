@@ -5,6 +5,9 @@
   var api = (config.apiBase || "").replace(/\/$/, "");
   var session = null;
   var root = document.createElement("div");
+  var advisorStyles = document.createElement("style");
+  advisorStyles.textContent = ".icb__advisor-bar{position:sticky;bottom:0;z-index:2;padding:.65rem 1rem;background:#fff;border-top:1px solid #dde2e8;border-bottom:1px solid #dde2e8}.icb__advisor-button{width:100%;border:0;border-radius:6px;background:var(--icb-accent);color:#172033;padding:.7rem .85rem;font:inherit;font-weight:700;cursor:pointer}";
+  document.head.appendChild(advisorStyles);
   root.dataset.insuranceChatbox = "";
   root.className = "icb";
   if (config.brandColor) root.style.setProperty("--icb-brand", config.brandColor);
@@ -16,6 +19,7 @@
       '<div class="icb__messages" aria-live="polite" aria-label="Chat messages"></div>' +
       '<div class="icb__quick" aria-label="Common questions"><button type="button" data-question="What coverage types can I ask about?">Coverage types</button><button type="button" data-question="How does term life insurance work?">Life insurance</button><button type="button" data-question="What should I understand about health insurance?">Health insurance</button><button type="button" data-question="What is an annuity?">Annuities</button><button type="button" data-question="I want to speak with an advisor">Contact an advisor</button><button type="button" data-question="How is my information protected?">Privacy</button></div>' +
       '<form class="icb__message-form"><label class="icb__sr" for="icb-message">Your question</label><input id="icb-message" name="message" maxlength="1000" placeholder="Ask a general question" autocomplete="off" required><button type="submit">Send</button></form>' +
+      '<div class="icb__advisor-bar"><button class="icb__advisor-button" type="button" aria-expanded="false">Contact an advisor</button></div>' +
       '<form class="icb__contact" hidden><h3>Request advisor follow-up</h3><p>Complete the required fields. An advisor will review your request.</p>' +
         '<div class="icb__grid"><label>First name<input name="first_name" maxlength="80" required></label><label>Last name<input name="last_name" maxlength="80" required></label></div>' +
         '<label>Email<input name="email" type="email" maxlength="254" required></label><label>Phone<input name="phone" type="tel" maxlength="20" required></label>' +
@@ -38,11 +42,18 @@
   var status = root.querySelector(".icb__status");
   var messageForm = root.querySelector(".icb__message-form");
   var contactForm = root.querySelector(".icb__contact");
+  var advisorButton = root.querySelector(".icb__advisor-button");
 
   function escapeHtml(value) { var div = document.createElement("div"); div.textContent = value || ""; return div.innerHTML; }
   function safeUrl(value) { try { var url = new URL(value, location.href); return url.protocol === "https:" || url.protocol === "http:" ? url.href : "#"; } catch { return "#"; } }
   function addMessage(body, role) { var item = document.createElement("p"); item.className = "icb__bubble icb__bubble--" + role; item.textContent = body; messages.appendChild(item); messages.scrollTop = messages.scrollHeight; }
   function setStatus(body, error) { status.textContent = body || ""; status.classList.toggle("is-error", Boolean(error)); }
+  function setContactFormVisible(visible) {
+    contactForm.hidden = !visible;
+    advisorButton.setAttribute("aria-expanded", String(visible));
+    advisorButton.textContent = visible ? "Hide advisor form" : "Contact an advisor";
+    if (visible) contactForm.scrollIntoView({ block: "nearest" });
+  }
   function updateSmsConsent() {
     var selected = contactForm.elements.preferred_contact.value === "Text";
     var consent = root.querySelector("[data-sms-consent]");
@@ -72,9 +83,10 @@
   close.addEventListener("click", closePanel);
   root.addEventListener("keydown", function (event) { if (event.key === "Escape" && !panel.hidden) closePanel(); });
   root.querySelector(".icb__quick").addEventListener("click", function (event) { var button = event.target.closest("button[data-question]"); if (button) sendMessage(button.dataset.question); });
+  advisorButton.addEventListener("click", function () { setContactFormVisible(contactForm.hidden); });
   async function sendMessage(body) {
     if (!body || !body.trim()) return;
-    try { await start(); addMessage(body.trim(), "visitor"); setStatus("Sending…"); var result = await post("/api/chat/message", { source_site: config.sourceSite, session_id: session.session_id, session_token: session.session_token, message: body.trim() }); addMessage(result.message, "assistant"); contactForm.hidden = !result.show_contact_form; setStatus(""); } catch (error) { setStatus(error.message, true); }
+    try { await start(); addMessage(body.trim(), "visitor"); setStatus("Sending…"); var result = await post("/api/chat/message", { source_site: config.sourceSite, session_id: session.session_id, session_token: session.session_token, message: body.trim() }); addMessage(result.message, "assistant"); if (result.show_contact_form) setContactFormVisible(true); setStatus(""); } catch (error) { setStatus(error.message, true); }
   }
   messageForm.addEventListener("submit", function (event) { event.preventDefault(); var input = messageForm.elements.message; var body = input.value; input.value = ""; sendMessage(body); });
   contactForm.elements.preferred_contact.addEventListener("change", updateSmsConsent);
@@ -85,7 +97,7 @@
       payload.contact_consent = form.has("contact_consent"); payload.sms_service_consent = form.has("sms_service_consent"); payload.source_site = config.sourceSite; payload.session_id = session.session_id; payload.session_token = session.session_token;
       var lead = await post("/api/chat/lead", payload); addMessage(lead.message, "assistant");
       var handoff = await post("/api/chat/handoff", { source_site: config.sourceSite, session_id: session.session_id, session_token: session.session_token, reason: payload.message || "Advisor follow-up requested through website chat" });
-      addMessage(handoff.message, "assistant"); contactForm.hidden = true; contactForm.reset(); setStatus("");
+      addMessage(handoff.message, "assistant"); setContactFormVisible(false); contactForm.reset(); setStatus("");
     } catch (error) { setStatus(error.message, true); }
   });
 })();
