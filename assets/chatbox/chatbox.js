@@ -20,13 +20,14 @@
         '<div class="icb__grid"><label>First name<input name="first_name" maxlength="80" required></label><label>Last name<input name="last_name" maxlength="80" required></label></div>' +
         '<label>Email<input name="email" type="email" maxlength="254" required></label><label>Phone<input name="phone" type="tel" maxlength="20" required></label>' +
         '<div class="icb__grid"><label>State<input name="state" maxlength="2" pattern="[A-Za-z]{2}" required></label><label>Interest<select name="coverage_category" required><option value="">Select</option><option>Life insurance</option><option>Health insurance</option><option>Annuity</option><option>Long-term care</option><option>Supplemental insurance</option><option>Other</option></select></label></div>' +
-        '<label>Preferred follow-up<select name="preferred_contact" required><option value="Email">Email</option><option value="Phone">Phone</option></select></label><label>Question or goal<textarea name="message" maxlength="500"></textarea></label>' +
-        '<label class="icb__check"><input name="contact_consent" type="checkbox" required> I authorize ' + escapeHtml(config.brandName) + ' to respond to this request by email or phone. This does not authorize text messages or promotional messages.</label>' +
+        '<label>Preferred follow-up<select name="preferred_contact" required><option value="Email">Email</option><option value="Phone">Phone</option><option value="Text" data-sms-option hidden disabled>Text</option></select></label><label>Question or goal<textarea name="message" maxlength="500"></textarea></label>' +
+        '<label class="icb__check"><input name="contact_consent" type="checkbox" required> I authorize ' + escapeHtml(config.brandName) + ' to respond to this request by email or phone. This does not authorize promotional messages.</label>' +
+        '<label class="icb__check" data-sms-consent hidden><input name="sms_service_consent" type="checkbox"> Optional: I agree to receive text messages from ' + escapeHtml(config.brandName) + ' regarding this request, customer-requested follow-ups, and appointment confirmations or reminders at the number provided. Message frequency varies. Message and data rates may apply. Reply STOP to opt out or HELP for help. Consent is not a condition of purchase. This does not authorize promotional messages.</label>' +
         '<label class="icb__trap" aria-hidden="true">Website<input name="website" tabindex="-1" autocomplete="off"></label>' +
         '<p class="icb__legal">By submitting, you acknowledge the <a href="' + safeUrl(config.privacyUrl) + '" target="_blank" rel="noopener">Privacy Policy</a>. Do not submit sensitive medical or financial information.</p>' +
         '<button type="submit">Send request</button></form>' +
       '<p class="icb__status" role="status"></p>' +
-      '<footer>Text messaging and booking are disabled.</footer>' +
+      '<footer>Appointment booking is disabled.</footer>' +
     '</section>';
   document.body.appendChild(root);
 
@@ -42,7 +43,22 @@
   function safeUrl(value) { try { var url = new URL(value, location.href); return url.protocol === "https:" || url.protocol === "http:" ? url.href : "#"; } catch { return "#"; } }
   function addMessage(body, role) { var item = document.createElement("p"); item.className = "icb__bubble icb__bubble--" + role; item.textContent = body; messages.appendChild(item); messages.scrollTop = messages.scrollHeight; }
   function setStatus(body, error) { status.textContent = body || ""; status.classList.toggle("is-error", Boolean(error)); }
-  function updateFeatures(features) { var footer = root.querySelector("footer"); footer.textContent = features && features.ai ? "Educational AI is active. Text messaging and booking are disabled." : "Approved educational answers are active. Text messaging and booking are disabled."; }
+  function updateSmsConsent() {
+    var selected = contactForm.elements.preferred_contact.value === "Text";
+    var consent = root.querySelector("[data-sms-consent]");
+    consent.hidden = !selected;
+    consent.querySelector("input").required = selected;
+    if (!selected) consent.querySelector("input").checked = false;
+  }
+  function updateFeatures(features) {
+    var smsEnabled = Boolean(features && features.sms);
+    var smsOption = root.querySelector("[data-sms-option]");
+    smsOption.hidden = !smsEnabled; smsOption.disabled = !smsEnabled;
+    if (!smsEnabled && contactForm.elements.preferred_contact.value === "Text") contactForm.elements.preferred_contact.value = "Email";
+    updateSmsConsent();
+    var prefix = features && features.ai ? "Educational AI is active. " : "Approved educational answers are active. ";
+    root.querySelector("footer").textContent = prefix + (smsEnabled ? "Requested text follow-up is available. " : "Text messaging is disabled. ") + "Appointment booking is disabled.";
+  }
   async function post(path, body) { var response = await fetch(api + path, { method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" }, body: JSON.stringify(body) }); var result = await response.json().catch(function () { return {}; }); if (!response.ok || !result.ok) throw new Error(result.message || "The request could not be completed."); return result; }
   async function start() {
     if (session) return session;
@@ -61,11 +77,12 @@
     try { await start(); addMessage(body.trim(), "visitor"); setStatus("Sending…"); var result = await post("/api/chat/message", { source_site: config.sourceSite, session_id: session.session_id, session_token: session.session_token, message: body.trim() }); addMessage(result.message, "assistant"); contactForm.hidden = !result.show_contact_form; setStatus(""); } catch (error) { setStatus(error.message, true); }
   }
   messageForm.addEventListener("submit", function (event) { event.preventDefault(); var input = messageForm.elements.message; var body = input.value; input.value = ""; sendMessage(body); });
+  contactForm.elements.preferred_contact.addEventListener("change", updateSmsConsent);
   contactForm.addEventListener("submit", async function (event) {
     event.preventDefault(); if (!contactForm.reportValidity()) return;
     try {
       await start(); setStatus("Saving your request…"); var form = new FormData(contactForm); var payload = Object.fromEntries(form.entries());
-      payload.contact_consent = form.has("contact_consent"); payload.source_site = config.sourceSite; payload.session_id = session.session_id; payload.session_token = session.session_token;
+      payload.contact_consent = form.has("contact_consent"); payload.sms_service_consent = form.has("sms_service_consent"); payload.source_site = config.sourceSite; payload.session_id = session.session_id; payload.session_token = session.session_token;
       var lead = await post("/api/chat/lead", payload); addMessage(lead.message, "assistant");
       var handoff = await post("/api/chat/handoff", { source_site: config.sourceSite, session_id: session.session_id, session_token: session.session_token, reason: payload.message || "Advisor follow-up requested through website chat" });
       addMessage(handoff.message, "assistant"); contactForm.hidden = true; contactForm.reset(); setStatus("");
