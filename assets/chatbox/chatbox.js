@@ -47,6 +47,8 @@
   var bookingPanel = root.querySelector(".icb__booking");
   var bookingForm = root.querySelector(".icb__booking-form");
   var slotSelect = bookingForm.elements.starts_at;
+  var bookingButton = bookingForm.querySelector("[data-book]");
+  var bookingManage = root.querySelector("[data-manage]");
   var bookedAppointment = null;
 
   function escapeHtml(value) { var div = document.createElement("div"); div.textContent = value || ""; return div.innerHTML; }
@@ -115,7 +117,7 @@
   });
   bookingForm.addEventListener("submit", async function (event) {
     event.preventDefault(); if (!bookingForm.reportValidity() || bookedAppointment) return;
-    try { setStatus("Confirming your appointment…"); var result = await post("/api/chat/appointments/book", appointmentPayload({ starts_at: slotSelect.value })); bookedAppointment = result.appointment; addMessage(result.message, "assistant"); bookingForm.querySelector("[data-book]").hidden = true; root.querySelector("[data-manage]").hidden = false; await loadAvailability(bookedAppointment.id); } catch (error) { setStatus(error.message, true); await loadAvailability().catch(function () {}); }
+    try { setStatus("Confirming your appointment…"); var result = await post("/api/chat/appointments/book", appointmentPayload({ starts_at: slotSelect.value })); bookedAppointment = result.appointment; addMessage(result.message, "assistant"); bookingButton.hidden = true; bookingManage.hidden = false; await loadAvailability(bookedAppointment.id); } catch (error) { setStatus(error.message, true); await loadAvailability().catch(function () {}); }
   });
   root.querySelector("[data-reschedule]").addEventListener("click", async function () {
     if (!bookedAppointment || !slotSelect.value) { setStatus("Select a new available time first.", true); return; }
