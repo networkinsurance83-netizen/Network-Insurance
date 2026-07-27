@@ -14,7 +14,7 @@
       '<header class="icb__header"><div><strong id="insurance-chat-title">' + escapeHtml(config.brandName) + '</strong><small>General insurance information</small></div><button class="icb__close" type="button" aria-label="Close chat">×</button></header>' +
       '<div class="icb__notice">Educational information only. Do not share Social Security numbers, payment information, passwords, or detailed medical information.</div>' +
       '<div class="icb__messages" aria-live="polite" aria-label="Chat messages"></div>' +
-      '<div class="icb__quick" aria-label="Common questions"><button type="button" data-question="What coverage types can I ask about?">Coverage types</button><button type="button" data-question="I want to speak with an advisor">Contact an advisor</button><button type="button" data-question="How is my information protected?">Privacy</button></div>' +
+      '<div class="icb__quick" aria-label="Common questions"><button type="button" data-question="What coverage types can I ask about?">Coverage types</button><button type="button" data-question="How does term life insurance work?">Life insurance</button><button type="button" data-question="What should I understand about health insurance?">Health insurance</button><button type="button" data-question="What is an annuity?">Annuities</button><button type="button" data-question="I want to speak with an advisor">Contact an advisor</button><button type="button" data-question="How is my information protected?">Privacy</button></div>' +
       '<form class="icb__message-form"><label class="icb__sr" for="icb-message">Your question</label><input id="icb-message" name="message" maxlength="1000" placeholder="Ask a general question" autocomplete="off" required><button type="submit">Send</button></form>' +
       '<form class="icb__contact" hidden><h3>Request advisor follow-up</h3><p>Complete the required fields. An advisor will review your request.</p>' +
         '<div class="icb__grid"><label>First name<input name="first_name" maxlength="80" required></label><label>Last name<input name="last_name" maxlength="80" required></label></div>' +
@@ -26,7 +26,7 @@
         '<p class="icb__legal">By submitting, you acknowledge the <a href="' + safeUrl(config.privacyUrl) + '" target="_blank" rel="noopener">Privacy Policy</a>. Do not submit sensitive medical or financial information.</p>' +
         '<button type="submit">Send request</button></form>' +
       '<p class="icb__status" role="status"></p>' +
-      '<footer>AI, text messaging, and booking are disabled during Phase 1.</footer>' +
+      '<footer>Text messaging and booking are disabled.</footer>' +
     '</section>';
   document.body.appendChild(root);
 
@@ -42,12 +42,13 @@
   function safeUrl(value) { try { var url = new URL(value, location.href); return url.protocol === "https:" || url.protocol === "http:" ? url.href : "#"; } catch { return "#"; } }
   function addMessage(body, role) { var item = document.createElement("p"); item.className = "icb__bubble icb__bubble--" + role; item.textContent = body; messages.appendChild(item); messages.scrollTop = messages.scrollHeight; }
   function setStatus(body, error) { status.textContent = body || ""; status.classList.toggle("is-error", Boolean(error)); }
+  function updateFeatures(features) { var footer = root.querySelector("footer"); footer.textContent = features && features.ai ? "Educational AI is active. Text messaging and booking are disabled." : "Approved educational answers are active. Text messaging and booking are disabled."; }
   async function post(path, body) { var response = await fetch(api + path, { method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" }, body: JSON.stringify(body) }); var result = await response.json().catch(function () { return {}; }); if (!response.ok || !result.ok) throw new Error(result.message || "The request could not be completed."); return result; }
   async function start() {
     if (session) return session;
     setStatus("Starting secure chat…");
     session = await post("/api/chat/session", { source_site: config.sourceSite, landing_page: location.href.split("#")[0], website: "" });
-    addMessage(session.message, "assistant"); setStatus(""); return session;
+    addMessage(session.message, "assistant"); updateFeatures(session.features); setStatus(""); return session;
   }
   async function openPanel() { panel.hidden = false; launcher.setAttribute("aria-expanded", "true"); try { await start(); root.querySelector("#icb-message").focus(); } catch (error) { setStatus(error.message, true); } }
   function closePanel() { panel.hidden = true; launcher.setAttribute("aria-expanded", "false"); launcher.focus(); }
