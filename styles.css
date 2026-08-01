@@ -573,6 +573,15 @@ legend {
   font-weight: 900;
 }
 
+.video-card video {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  background: #000;
+}
+
 .breadcrumb {
   margin-bottom: 1rem;
   font-size: 0.9rem;
