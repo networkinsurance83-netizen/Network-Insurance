@@ -356,7 +356,7 @@ a:hover {
 
 .feature-video {
   display: block;
-  width: min(100%, 960px);
+  width: min(100%, 480px);
   height: auto;
   margin: 0 auto;
   border: 1px solid var(--line);
