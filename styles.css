@@ -358,6 +358,10 @@ a:hover {
   background: var(--soft);
 }
 
+.supplemental-video {
+  background: var(--soft);
+}
+
 .feature-video {
   display: block;
   width: min(100%, 480px);
