@@ -354,6 +354,10 @@ a:hover {
   background: var(--soft);
 }
 
+.annuity-video {
+  background: var(--soft);
+}
+
 .feature-video {
   display: block;
   width: min(100%, 480px);
@@ -363,6 +367,10 @@ a:hover {
   border-radius: 8px;
   background: #000;
   box-shadow: 0 10px 24px rgba(20, 32, 51, 0.08);
+}
+
+.wide-video {
+  width: min(100%, 960px);
 }
 
 .profile-card {
