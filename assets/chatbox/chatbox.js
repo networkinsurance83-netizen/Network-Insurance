@@ -14,11 +14,10 @@
   if (config.accentColor) root.style.setProperty("--icb-accent", config.accentColor);
   root.innerHTML = '<button class="icb__launcher" type="button" aria-expanded="false" aria-controls="insurance-chat-panel"><span aria-hidden="true">?</span><span>Chat with us</span></button>' +
     '<section class="icb__panel" id="insurance-chat-panel" role="dialog" aria-modal="false" aria-labelledby="insurance-chat-title" hidden>' +
-      '<header class="icb__header"><div><strong id="insurance-chat-title">' + escapeHtml(config.brandName) + '</strong><small>General insurance information</small></div><button class="icb__close" type="button" aria-label="Close chat">×</button></header>' +
-      '<div class="icb__notice">Educational information only. Do not share Social Security numbers, payment information, passwords, or detailed medical information.</div>' +
+      '<header class="icb__header"><div><strong id="insurance-chat-title">' + escapeHtml(config.brandName) + ' Chat Bot</strong></div><button class="icb__close" type="button" aria-label="Close chat">×</button></header>' +
       '<div class="icb__messages" aria-live="polite" aria-label="Chat messages"></div>' +
       '<div class="icb__quick" aria-label="Common questions"><button type="button" data-question="What coverage types can I ask about?">Coverage types</button><button type="button" data-question="How does term life insurance work?">Life insurance</button><button type="button" data-question="What should I understand about health insurance?">Health insurance</button><button type="button" data-question="What is an annuity?">Annuities</button><button type="button" data-question="I want to speak with an advisor">Contact an advisor</button><button type="button" data-question="How is my information protected?">Privacy</button></div>' +
-      '<form class="icb__message-form"><label class="icb__sr" for="icb-message">Your question</label><input id="icb-message" name="message" maxlength="1000" placeholder="Ask a general question" autocomplete="off" required><button type="submit">Send</button></form>' +
+      '<form class="icb__message-form"><label class="icb__sr" for="icb-message">Your question</label><input id="icb-message" name="message" maxlength="1000" placeholder="Ask a general question" autocomplete="off" required><button type="submit">SEND</button></form>' +
       '<div class="icb__advisor-bar"><button class="icb__advisor-button" type="button" aria-expanded="false">Contact an advisor</button></div>' +
       '<form class="icb__contact" hidden><h3>Request advisor follow-up</h3><p>Complete the required fields. An advisor will review your request.</p>' +
         '<div class="icb__grid"><label>First name<input name="first_name" maxlength="80" required></label><label>Last name<input name="last_name" maxlength="80" required></label></div>' +
@@ -32,7 +31,7 @@
         '<button type="submit">Send request</button></form>' +
       '<section class="icb__booking" hidden><h3>Book an appointment</h3><p>Live availability is shown in Eastern Time. Times include a buffer to prevent back-to-back or overlapping appointments.</p><form class="icb__booking-form"><label>Available time<select name="starts_at" required><option value="">Loading times…</option></select></label><button type="submit" data-book>Book appointment</button></form><div class="icb__booking-actions" data-manage hidden><button type="button" data-reschedule>Reschedule to selected time</button><button type="button" data-cancel>Cancel appointment</button></div></section>' +
       '<p class="icb__status" role="status"></p>' +
-      '<footer>Appointment booking is disabled.</footer>' +
+      '<footer class="icb__safety-footer">Educational information only. Do not share Social Security number, payment information, password, or detailed medical information.</footer>' +
     '</section>';
   document.body.appendChild(root);
 
@@ -74,8 +73,6 @@
     smsOption.hidden = !smsEnabled; smsOption.disabled = !smsEnabled;
     if (!smsEnabled && contactForm.elements.preferred_contact.value === "Text") contactForm.elements.preferred_contact.value = "Email";
     updateSmsConsent();
-    var prefix = features && features.ai ? "Educational AI is active. " : "Approved educational answers are active. ";
-    root.querySelector("footer").textContent = prefix + (smsEnabled ? "Requested text follow-up is available. " : "Text messaging is disabled. ") + (features && features.booking ? "Live appointment booking is available after contact submission." : "Appointment booking is disabled.");
   }
   async function post(path, body) { var response = await fetch(api + path, { method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" }, body: JSON.stringify(body) }); var result = await response.json().catch(function () { return {}; }); if (!response.ok || !result.ok) throw new Error(result.message || "The request could not be completed."); return result; }
   async function start() {
